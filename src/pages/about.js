@@ -1,16 +1,20 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import Layout from '../components/layout'
+import Seo from '../components/seo'
+
 const AboutPage = () => {
     return (
-        <div>
+        <Layout>
+            <Seo title="about" />
             <h1>about</h1>
             <ul>
                 <Link to="/" activeStyle={{ border: 'solid red 1px' }}>
                     Home
                 </Link>
             </ul>
-        </div>
+        </Layout>
     )
 }
 export default AboutPage
