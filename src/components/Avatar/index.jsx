@@ -8,7 +8,11 @@ const Avatar = () => {
             {
                 avatarImage: file(relativePath: { eq: "avatar.png" }) {
                     childImageSharp {
-                        gatsbyImageData(layout: FIXED)
+                        gatsbyImageData(
+                            width: 60
+                            placeholder: TRACED_SVG
+                            layout: CONSTRAINED
+                        )
                     }
                 }
             }
