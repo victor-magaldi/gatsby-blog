@@ -3,30 +3,19 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Avatar = () => {
-    const data = useStaticQuery(
+    const { avatarImage } = useStaticQuery(
         graphql`
             {
-                file(relativePath: { eq: "avatar.png" }) {
+                avatarImage: file(relativePath: { eq: "avatar.png" }) {
                     childImageSharp {
-                        fixed {
-                            ...GatsbyImageSharpFixed
-                        }
+                        gatsbyImageData(layout: FIXED)
                     }
                 }
             }
         `
     )
-    console.info(data.file.childImageSharp.fixed)
 
-    return (
-        <GatsbyImage
-            image={data.file.childImageSharp.fixed}
-            src={data.file.childImageSharp.fixed.src}
-            alt="test"
-            height={33}
-            width={33}
-        />
-    )
+    return <GatsbyImage image={avatarImage.childImageSharp.gatsbyImageData} />
 }
 
 export default Avatar
