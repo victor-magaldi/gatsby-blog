@@ -10,6 +10,7 @@ const Avatar = () => {
                     childImageSharp {
                         gatsbyImageData(
                             width: 60
+                            height:60
                             placeholder: TRACED_SVG
                             layout: CONSTRAINED
                         )
