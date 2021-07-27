@@ -3,22 +3,27 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import Seo from '../components/seo'
+import PostItem from '../components/PostItem'
 
 const IndexPage = () => (
     <Layout>
         <Seo title="Home" />
         <h1>Home</h1>
-        <ul>
-            <li>
-                <Link to="/about">About</Link>
-            </li>
-            <li>
-                <Link to="/" activeStyle={{ border: 'solid red 1px' }}>
-                    Home
-                </Link>
-            </li>
-        </ul>
-
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
         <p>
             <Link to="/page-2/">Go to page 2</Link> <br />
         </p>
