@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import Seo from '../components/seo'
@@ -8,25 +7,15 @@ import PostItem from '../components/PostItem'
 const IndexPage = () => (
     <Layout>
         <Seo title="Home" />
-        <h1>Home</h1>
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <p>
-            <Link to="/page-2/">Go to page 2</Link> <br />
-        </p>
+        <PostItem
+            slug="/about/"
+            category="Misc"
+            background="blue"
+            date="30 de Julho de 2019"
+            timeToRead="5"
+            title="Blog novo"
+            description="Algumas razões para você ter sua própria plataforma ao invés de soluções como o Medium."
+        />
     </Layout>
 )
 
