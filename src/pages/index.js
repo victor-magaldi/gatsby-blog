@@ -8,7 +8,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 const IndexPage = () => {
     const { allMarkdownRemark } = useStaticQuery(
         graphql`
-            query {
+            query postList {
                 allMarkdownRemark {
                     edges {
                         node {
