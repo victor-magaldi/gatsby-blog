@@ -3,20 +3,63 @@ import * as React from 'react'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import PostItem from '../components/PostItem'
+import { useStaticQuery, graphql } from 'gatsby'
 
-const IndexPage = () => (
-    <Layout>
-        <Seo title="Home" />
-        <PostItem
-            slug="/about/"
-            category="Misc"
-            background="blue"
-            date="30 de Julho de 2019"
-            timeToRead="5"
-            title="Blog novo"
-            description="Algumas razões para você ter sua própria plataforma ao invés de soluções como o Medium."
-        />
-    </Layout>
-)
+const IndexPage = () => {
+    const { allMarkdownRemark } = useStaticQuery(
+        graphql`
+            query {
+                allMarkdownRemark {
+                    edges {
+                        node {
+                            frontmatter {
+                                background
+                                category
+                                date(
+                                    locale: "pt-br"
+                                    formatString: "DD [de] MMMM [de] YYYY"
+                                )
+                                description
+                                title
+                            }
+                            timeToRead
+                        }
+                    }
+                }
+            }
+        `
+    )
+    const postList = allMarkdownRemark.edges
+
+    return (
+        <Layout>
+            <Seo title="Home" />
+            {postList.map(
+                ({
+                    node: {
+                        frontmatter: {
+                            background,
+                            category,
+                            date,
+                            description,
+                            title,
+                        },
+                        timeToRead,
+                    },
+                }) => (
+                    <PostItem
+                        slug="/about/"
+                        background={background}
+                        category={category}
+                        date={date}
+                        timeToRead={timeToRead}
+                        title={title}
+                        description={description}
+                    />
+                )
+            )}
+        </Layout>
+    )
+}
 
 export default IndexPage
