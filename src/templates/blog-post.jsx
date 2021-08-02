@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 const BlogPost = ({ data }) => {
     const post = data.markdownRemark
-
+    console.log(post)
     return (
         <>
             <h1>Title: {post.frontmatter.title}</h1>
