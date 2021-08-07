@@ -1,14 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Seo from '../components/seo'
 
 const BlogPost = ({ data }) => {
     const post = data.markdownRemark
     console.log(post)
     return (
-        <>
+        <Layout>
+            <Seo title="Home" />
             <h1>Title: {post.frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
-        </>
+        </Layout>
     )
 }
 
