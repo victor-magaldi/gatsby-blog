@@ -5,10 +5,10 @@ import Seo from '../components/seo'
 
 const BlogPost = ({ data }) => {
     const post = data.markdownRemark
-    console.log(post)
+
     return (
         <Layout>
-            <Seo title="Home" />
+            <Seo title={`Post-${post.frontmatter.title}`} />
             <h1>Title: {post.frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
         </Layout>
