@@ -10,20 +10,33 @@ const PostItem = ({
     timeToRead,
     title,
     description,
-}) => (
-    <S.PostItemLink to={slug}>
-        <S.PostItemWrapper>
-            <S.PostItemTag background={background}>{category}</S.PostItemTag>
-            <S.PostItemInfo>
-                <S.PostItemDate>
-                    {date} • {timeToRead} min de leitura
-                </S.PostItemDate>
-                <S.PostItemTitle>{title}</S.PostItemTitle>
-                <S.PostItemDescription>{description}</S.PostItemDescription>
-            </S.PostItemInfo>
-        </S.PostItemWrapper>
-    </S.PostItemLink>
-)
+}) => {
+    console.log(
+        slug,
+        background,
+        category,
+        date,
+        timeToRead,
+        title,
+        description
+    )
+    return (
+        <S.PostItemLink to={slug}>
+            <S.PostItemWrapper>
+                <S.PostItemTag background={background}>
+                    {category}
+                </S.PostItemTag>
+                <S.PostItemInfo>
+                    <S.PostItemDate>
+                        {date} • {timeToRead} min de leitura
+                    </S.PostItemDate>
+                    <S.PostItemTitle>{title}</S.PostItemTitle>
+                    <S.PostItemDescription>{description}</S.PostItemDescription>
+                </S.PostItemInfo>
+            </S.PostItemWrapper>
+        </S.PostItemLink>
+    )
+}
 
 PostItem.propTypes = {
     slug: PropTypes.string.isRequired,

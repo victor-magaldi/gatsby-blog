@@ -19,19 +19,22 @@ const BlogList = (props) => {
         <Layout>
             <Seo title="Home" />
             {postList.map(
-                ({
-                    node: {
-                        frontmatter: {
-                            background,
-                            category,
-                            date,
-                            description,
-                            title,
+                (
+                    {
+                        node: {
+                            frontmatter: {
+                                background,
+                                category,
+                                date,
+                                description,
+                                title,
+                            },
+                            timeToRead,
+                            fields: { slug },
                         },
-                        timeToRead,
-                        fields: { slug },
                     },
-                }) => (
+                    index
+                ) => (
                     <PostItem
                         slug={slug}
                         background={background}
@@ -40,6 +43,7 @@ const BlogList = (props) => {
                         timeToRead={timeToRead}
                         title={title}
                         description={description}
+                        key={index}
                     />
                 )
             )}
@@ -82,6 +86,5 @@ export const query = graphql`
         }
     }
 `
-console.log(query)
 
 export default BlogList
