@@ -1,10 +1,12 @@
 const path = require('path')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-//adicionando um campo slug no post
+//adicionando um campo slug em cada  post
+//cria um campo slug dentro de fields
 exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
     // Ensures we are processing only markdown files
+    console.log(node)
     if (node.internal.type === 'MarkdownRemark') {
         // Use `createFilePath` to turn markdown files in our `data/faqs` directory into `/faqs/slug`
         const slug = createFilePath({
@@ -22,6 +24,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 }
 
+// Criando as páginas de cada post
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
     return graphql(`
@@ -45,6 +48,22 @@ exports.createPages = ({ graphql, actions }) => {
                             title
                         }
                         timeToRead
+                        next {
+                            frontmatter {
+                                title
+                            }
+                            fields {
+                                slug
+                            }
+                        }
+                        previous {
+                            fields {
+                                slug
+                            }
+                            frontmatter {
+                                title
+                            }
+                        }
                     }
                 }
             }
@@ -52,7 +71,7 @@ exports.createPages = ({ graphql, actions }) => {
     `).then((result) => {
         const posts = result.data.allMarkdownRemark.edges
 
-        posts.forEach(({ node }) => {
+        posts.forEach(({ node, next, previous }) => {
             createPage({
                 path: node.fields.slug,
                 component: path.resolve(`./src/templates/blog-post.jsx`),
@@ -60,6 +79,8 @@ exports.createPages = ({ graphql, actions }) => {
                     // Data passed to context is available
                     // in page queries as GraphQL variables.
                     slug: node.fields.slug,
+                    previousPost: next,
+                    nextPost: previous,
                 },
             })
         })
