@@ -8,7 +8,7 @@ import Pagination from '../components/Pagination'
 
 const BlogList = (props) => {
     const postList = props.data.allMarkdownRemark.edges
-
+    console.log(props, 'PROPSSSSSSSSs')
     const { currentPage, numPages } = props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
@@ -58,6 +58,7 @@ const BlogList = (props) => {
         </Layout>
     )
 }
+// Esta query abaixo envia um props.data para o componente
 export const query = graphql`
     query PostList($skip: Int!, $limit: Int!) {
         allMarkdownRemark(
