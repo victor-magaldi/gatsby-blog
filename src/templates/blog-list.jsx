@@ -8,7 +8,6 @@ import Pagination from '../components/Pagination'
 
 const BlogList = (props) => {
     const postList = props.data.allMarkdownRemark.edges
-    console.log(props, 'PROPSSSSSSSSs')
     const { currentPage, numPages } = props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages

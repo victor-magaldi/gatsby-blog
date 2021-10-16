@@ -11,15 +11,6 @@ const PostItem = ({
     title,
     description,
 }) => {
-    console.log(
-        slug,
-        background,
-        category,
-        date,
-        timeToRead,
-        title,
-        description
-    )
     return (
         <S.PostItemLink to={slug}>
             <S.PostItemWrapper>

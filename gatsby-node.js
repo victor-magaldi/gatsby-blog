@@ -6,7 +6,6 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
     // Ensures we are processing only markdown files
-    console.log(node)
     if (node.internal.type === 'MarkdownRemark') {
         // Use `createFilePath` to turn markdown files in our `data/faqs` directory into `/faqs/slug`
         const slug = createFilePath({
