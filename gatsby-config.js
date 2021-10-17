@@ -1,5 +1,6 @@
 const queries = require('./src/utils/algoliaQueries')
-require('dotenv').config()
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '.env') })
 
 module.exports = {
     siteMetadata: {
@@ -60,9 +61,9 @@ module.exports = {
         {
             resolve: `gatsby-plugin-algolia`,
             options: {
-                appId: process.env.ALGOLIA_APP_ID,
+                appId: process.env.GATSBY_ALGOLIA_APP_ID,
                 apiKey: process.env.ALGOLIA_ADMIN_KEY,
-                indexName: process.env.ALGOLIA_INDEX_NAME,
+                indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
                 queries,
                 chunkSize: 10000, // default: 1000
                 enablePartialUpdates: true,
