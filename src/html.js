@@ -42,7 +42,7 @@ export default function HTML(props) {
               function setDisplay(newDisplay) {
                 window.__display = newDisplay;
                 preferredDisplay = newDisplay;
-                document.body.id = newDisplay;
+                document.body.dataset.display = newDisplay;
                 window.__onDisplayChange(newDisplay);
               }
               var preferredDisplay;
