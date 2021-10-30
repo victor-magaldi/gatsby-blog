@@ -22,7 +22,7 @@ export const SearchWrapper = styled.section`
     .ais-Stats {
         color: var(--texts);
     }
-    body#grid & {
+    body[data-display='grid'] & {
         .ais-Hits-list {
             background-color: var(--borders);
             border-bottom: 1px solid var(--borders);

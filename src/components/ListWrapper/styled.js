@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const ListWrapper = styled.section`
-    body#grid & {
+    body[data-display='grid'] & {
+        display: none;
         background-color: var(--borders);
         border-bottom: 1px solid var(--borders);
         display: grid;
