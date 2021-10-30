@@ -26,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
         font: inherit;
         vertical-align: baseline;
         box-sizing:border-box;
+        font-family: 'Roboto', sans-serif;
     }
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure, 
@@ -54,9 +55,9 @@ const GlobalStyles = createGlobalStyle`
     --borders: #38444d;
     --texts: #8899a6;
     --postColor: #fff;
-    --highlight: #1fa1f2;
-    --mediumBackground: #192734;
-    --background: #16202c;
+    --highlight: #BD081C;
+    --mediumBackground: #502274;
+    --background: #2F242C;
     --white:  #fff;
     --black: #222;
     }
@@ -64,7 +65,7 @@ const GlobalStyles = createGlobalStyle`
     --borders: #dedede;
     --postColor: #111;
     --texts: #555555;
-    --highlight: #1fa1f2;
+    --highlight: #BD081C;
     --mediumBackground: #f0f0f3;
     --background: #fff;
     --white: #fff;
