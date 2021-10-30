@@ -29,7 +29,7 @@ const MenuBar = () => {
             <S.MenuBarGroup>
                 <S.MenuBarLink
                     to="/"
-                    fade
+                    cover
                     direction="right"
                     bg="#16202c"
                     duration={0.6}
@@ -41,7 +41,7 @@ const MenuBar = () => {
                 </S.MenuBarLink>
                 <S.MenuBarLink
                     to="/search/"
-                    fade
+                    cover
                     direction="right"
                     bg="#16202c"
                     duration={0.6}
