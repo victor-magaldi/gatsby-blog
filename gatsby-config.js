@@ -15,7 +15,7 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-image`,
         'gatsby-plugin-transition-link',
-
+        `gatsby-plugin-sitemap`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -70,6 +70,7 @@ module.exports = {
                 queries,
                 chunkSize: 10000, // default: 1000
                 enablePartialUpdates: true,
+                matchFields: ['date'],
             },
         },
         {
