@@ -2,7 +2,7 @@ backend:
     name: github
     repo: victor-magaldi/gatsby-blog
     branch: main
-    site_domain: victor-magaldi-blog.netlify.app/
+    site_domain: victor-magaldi-blog.netlify.app
     base_url: https://api.netlify.com
 
 publish_mode: editorial_workflow
